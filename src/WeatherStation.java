@@ -3,20 +3,23 @@ import java.util.LinkedList;
 
 public class WeatherStation {
 
-    IReport report;
+    private IReport report;
 
     public WeatherStation(IReport report){
         this.report = report;
     }
 
     public double avergageMonthTemp(int month, int year){
-        return 0.0;
+        double tempavg = report.avergageMonthTemp(month, year);
+        return tempavg;
     }
 
     public double totalMonthRainfall(int month, int year){
-        return 0.0;
+        double rainTotal = report.totalMonthRainfall(month, year);
+        return rainTotal;
     }
 
     public void addTodaysReport(GregorianCalendar date, LinkedList<Reading> readings){
+        report.addDailyReport(date, readings);
     }
 }
