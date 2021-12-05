@@ -36,7 +36,14 @@ public class ReportList implements IReport{
 
     @Override
     public void addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
-        reports.add(new TodaysWeatherReport(date, ));
-    }
+        LinkedList<Double> rainfalls = new LinkedList<>();
+        LinkedList<Double> temps = new LinkedList<>();
 
+        for(Reading check : readings){
+            rainfalls.add(check.getReadingRainfall());
+            temps.add(check.getReadingTemp());
+        }
+
+        reports.add(new TodaysWeatherReport(date, rainfalls, temps));
+    }
 }
