@@ -11,24 +11,24 @@ public class Examples {
 
     //Times
     //Morning
-    Time morning = new Time(7, 30);
+    private Time morning = new Time(7, 30);
     //Afternoon
-    Time afternoon = new Time(1,30);
+    private Time afternoon = new Time(1,30);
     //Night
-    Time night = new Time(9, 30);
+    private Time night = new Time(9, 30);
 
     //Readings
-    Reading newReadingMorning1 = new Reading(morning, 30, 10);
-    Reading newReadingAfternoon1 = new Reading(afternoon, 50, 8);
-    Reading newReadingNight1 = new Reading(night, 32, 0);
+    private Reading newReadingMorning1 = new Reading(morning, 30, 10);
+    private Reading newReadingAfternoon1 = new Reading(afternoon, 50, 8);
+    private Reading newReadingNight1 = new Reading(night, 32, 0);
 
-    Reading newReadingMorning2 = new Reading(morning, 20, 20);
-    Reading newReadingAfternoon2 = new Reading(afternoon, 40, 0);
-    Reading newReadingNight2 = new Reading(night, 26, 10);
+    private Reading newReadingMorning2 = new Reading(morning, 20, 20);
+    private Reading newReadingAfternoon2 = new Reading(afternoon, 40, 0);
+    private Reading newReadingNight2 = new Reading(night, 26, 10);
 
     //Dates
-    GregorianCalendar day1 = new GregorianCalendar(2021, 11,6);
-    GregorianCalendar day2 = new GregorianCalendar(2021, 11,7);
+    private GregorianCalendar day1 = new GregorianCalendar(2021, 11,6);
+    private GregorianCalendar day2 = new GregorianCalendar(2021, 11,7);
     GregorianCalendar day3 = new GregorianCalendar(2022, 0,8);
     GregorianCalendar day4 = new GregorianCalendar(2022, 0,9);
 

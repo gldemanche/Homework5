@@ -12,6 +12,13 @@ public class ReportList implements IReport{
         this.reports = new LinkedList<>();
     }
 
+    /**
+     * calculates the average monthly temp for a given month and year
+     * @param month the given month
+     * @param year  the given year
+     * @return the monthly temp average by summing all the given daily temp averages and dividing by the number of
+     * daily temp averages
+     */
     @Override
     public double averageMonthTemp(int month, int year) {
         double sum = 0;
@@ -27,6 +34,12 @@ public class ReportList implements IReport{
         return sum/tempCount;
     }
 
+
+    /**
+     * @param month the given month
+     * @param year the given year
+     * @return the
+     */
     @Override
     public double totalMonthRainfall(int month, int year) {
         double sum = 0;

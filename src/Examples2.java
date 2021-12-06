@@ -6,9 +6,9 @@ import java.util.GregorianCalendar;
 
 public class Examples2 {
 
-    LinkedList<TodaysWeatherReport> reports = new LinkedList<>();
-    IReport list = new ReportList(reports);
-    WeatherStation station = new WeatherStation(list);
+    private LinkedList<TodaysWeatherReport> reports = new LinkedList<>();
+    private IReport list = new ReportList(reports);
+    private WeatherStation station = new WeatherStation(list);
 
     public Examples2(){
 
