@@ -1,3 +1,7 @@
+/**
+ * Time Class
+ * @author Gabe Demanche and Chris Chow
+ */
 public class Time {
     private int hour;
     private int minute;
