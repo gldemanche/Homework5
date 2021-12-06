@@ -4,21 +4,26 @@ import java.util.LinkedList;
 public class ReportList implements IReport{
     private LinkedList<TodaysWeatherReport> reports;
 
+    public ReportList(LinkedList<TodaysWeatherReport> reports){
+        this.reports = reports;
+    }
+
     public ReportList(){
         this.reports = new LinkedList<>();
     }
 
     @Override
-    public double avergageMonthTemp(int month, int year) {
+    public double averageMonthTemp(int month, int year) {
         double sum = 0;
-        int tempCount = 0;
+        double tempCount = 0;
 
         for(TodaysWeatherReport check : reports){
             if(check.dateCheck(month, year)){
-              sum += check.dailyTempAvg();
+              sum = sum + check.dailyTempAvg();
               tempCount ++;
             }
         }
+
         return sum/tempCount;
     }
 
@@ -44,6 +49,6 @@ public class ReportList implements IReport{
             temps.add(check.getReadingTemp());
         }
 
-        reports.add(new TodaysWeatherReport(date, rainfalls, temps));
+        reports.add(new TodaysWeatherReport(date, temps, rainfalls));
     }
 }

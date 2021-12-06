@@ -9,8 +9,8 @@ public class WeatherStation {
         this.report = report;
     }
 
-    public double avergageMonthTemp(int month, int year){
-        double tempavg = report.avergageMonthTemp(month, year);
+    public double averageMonthTemp(int month, int year){
+        double tempavg = report.averageMonthTemp(month, year);
         return tempavg;
     }
 

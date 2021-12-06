@@ -17,11 +17,11 @@ public class TodaysWeatherReport{
 
     //This i made ~ not required
     public boolean checkMonth(int month){
-        return this.date.get(month) == month;
+        return this.date.get(GregorianCalendar.MONTH) == month;
     }
     //same here
     public boolean checkYear(int year){
-        return this.date.get(year) == year;
+        return this.date.get(GregorianCalendar.YEAR) == year;
     }
 
     public boolean dateCheck(int month, int year){
