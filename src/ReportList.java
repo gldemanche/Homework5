@@ -1,6 +1,10 @@
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+/**
+ * ReportList Class
+ * @author Gabe Demanche and Chris Chow
+ */
 public class ReportList implements IReport{
     private LinkedList<TodaysWeatherReport> reports;
 
@@ -36,9 +40,10 @@ public class ReportList implements IReport{
 
 
     /**
+     * calculates the monthly rainfall total for a given month and year
      * @param month the given month
      * @param year the given year
-     * @return the
+     * @return the total rainfall for the month by summing all the daily totals for the given month and year
      */
     @Override
     public double totalMonthRainfall(int month, int year) {
@@ -52,6 +57,11 @@ public class ReportList implements IReport{
         return sum;
     }
 
+    /**
+     * Adds a report to the list of today weather reports from a given date and list of readings
+     * @param date     the given day
+     * @param readings the given list of readings
+     */
     @Override
     public void addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
         LinkedList<Double> rainfalls = new LinkedList<>();
