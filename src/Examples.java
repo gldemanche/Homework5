@@ -1,10 +1,13 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.Before;
-
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+/**
+ * Examples Class
+ * @author Gabe Demanche and Chris Chow
+ */
 public class Examples {
 
     public Examples(){}
@@ -29,27 +32,27 @@ public class Examples {
     //Dates
     private GregorianCalendar day1 = new GregorianCalendar(2021, 11,6);
     private GregorianCalendar day2 = new GregorianCalendar(2021, 11,7);
-    GregorianCalendar day3 = new GregorianCalendar(2022, 0,8);
-    GregorianCalendar day4 = new GregorianCalendar(2022, 0,9);
+    private GregorianCalendar day3 = new GregorianCalendar(2022, 0,8);
+    private GregorianCalendar day4 = new GregorianCalendar(2022, 0,9);
 
     //Temp Readings
-    LinkedList<Double> tempReadings1 = new LinkedList<>();
+    private LinkedList<Double> tempReadings1 = new LinkedList<>();
 
     //Rainfall Readings
-    LinkedList<Double> rainfallReadings1 = new LinkedList<>();
+    private LinkedList<Double> rainfallReadings1 = new LinkedList<>();
 
     //WeatherReports
-    TodaysWeatherReport newWeatherReport1 = new TodaysWeatherReport(day1, tempReadings1, rainfallReadings1);
+    private TodaysWeatherReport newWeatherReport1 = new TodaysWeatherReport(day1, tempReadings1, rainfallReadings1);
 
     //Readings
-    LinkedList<Reading> newReading1 = new LinkedList<>();
-    LinkedList<Reading> newReading2 = new LinkedList<>();
+    private LinkedList<Reading> newReading1 = new LinkedList<>();
+    private LinkedList<Reading> newReading2 = new LinkedList<>();
 
     //Report
-    ReportList newReportList1 = new ReportList();
+    private ReportList emptyReportList1 = new ReportList();
 
     //Weather Station
-    WeatherStation newWeatherStation1 = new WeatherStation(newReportList1);
+    private WeatherStation newWeatherStation1 = new WeatherStation(emptyReportList1);
 
     @Before
     public void setUp(){
@@ -69,35 +72,32 @@ public class Examples {
         newReading2.add(newReadingAfternoon2);
         newReading2.add(newReadingNight2);
 
-        newReportList1.addDailyReport(day1, newReading1);
-        newReportList1.addDailyReport(day2, newReading2);
+        newWeatherStation1.addTodaysReport(day1, newReading1);
+        newWeatherStation1.addTodaysReport(day2, newReading2);
+        newWeatherStation1.addTodaysReport(day3, newReading1);
+        newWeatherStation1.addTodaysReport(day4, newReading2);
+
+
 
     }
 
     //test average month temp
     @Test
-    public void validAvgTemp () {
+    public void validAvgTempDec() {
         assertEquals(newWeatherStation1.averageMonthTemp(11, 2021), 33.0, 0.001);
+    }
+    @Test
+    public void validAvgTempJan() {
+        assertEquals(newWeatherStation1.averageMonthTemp(0, 2022), 33.0, 0.001);
     }
 
     //tests monthly rainfall
     @Test
-    public void validMonthlyRainfall() {
+    public void validMonthlyRainfallDec() {
         assertEquals(newWeatherStation1.totalMonthRainfall(11,2021), 48.0, 0.001);
     }
-
-    /*
-    //tests addTodaysReport
     @Test
-    public void validAddReport(){
-        assertEquals();
+    public void validMonthlyRainfallFeb() {
+        assertEquals(newWeatherStation1.totalMonthRainfall(1,2022), 0.0, 0.001);
     }
-
-     */
-
-
-
-
 }
-
-
