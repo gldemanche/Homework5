@@ -1,3 +1,7 @@
+/**
+ * Reading Class
+ * @author Gabe Demanche and Chris Cow
+ */
 public class Reading {
     private Time readingTime;
     private double readingTemp;
@@ -9,13 +13,19 @@ public class Reading {
         this.readingRainfall = readingRainfall;
     }
 
+    /**
+     * Getter for the temperature data within the reading
+     * @return the reading temperature data
+     */
     public double getReadingTemp(){
         return this.readingTemp;
     }
 
+    /**
+     * Getter for the rainfall data within the reading
+     * @return the reading rainfall data
+     */
     public double getReadingRainfall(){
         return this.readingRainfall;
     }
-
-
 }
