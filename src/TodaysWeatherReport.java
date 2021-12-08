@@ -51,15 +51,21 @@ public class TodaysWeatherReport{
     /**
      * Calculates the daily temperature average
      * @return the sum of the temps stored in the todays report divided by the total number of temp readings
+     * or 0.0 if none in list (since the main station will catch invalids)
      */
     public double dailyTempAvg(){
         double sum = 0;
 
-        for(double check : this.tempReadings){
-            sum += check;
+        if(this.tempReadings.size() == 0){
+            return 0.0;
         }
+        else {
+            for (double check : this.tempReadings) {
+                sum += check;
+            }
 
-        return sum/this.tempReadings.size();
+            return sum / this.tempReadings.size();
+        }
     }
 
     /**
