@@ -21,21 +21,25 @@ public class ReportList implements IReport{
      * @param month the given month
      * @param year  the given year
      * @return the monthly temp average by summing all the given daily temp averages and dividing by the number of
-     * daily temp averages
+     * daily temp averages or -999 if the list of reports is empty
      */
     @Override
     public double averageMonthTemp(int month, int year) {
         double sum = 0;
         double tempCount = 0;
 
-        for(TodaysWeatherReport check : reports){
-            if(check.dateCheck(month, year)){
-              sum = sum + check.dailyTempAvg();
-              tempCount ++;
-            }
+        if (reports.size() == 0){
+            return -999;
         }
-
-        return sum/tempCount;
+        else {
+            for (TodaysWeatherReport check : reports) {
+                if (check.dateCheck(month, year)) {
+                    sum = sum + check.dailyTempAvg();
+                    tempCount++;
+                }
+            }
+            return sum / tempCount;
+        }
     }
 
 
@@ -44,17 +48,23 @@ public class ReportList implements IReport{
      * @param month the given month
      * @param year the given year
      * @return the total rainfall for the month by summing all the daily totals for the given month and year
+     * if the list of reports is empty returns 0.0 since there was no rainfall
      */
     @Override
     public double totalMonthRainfall(int month, int year) {
         double sum = 0;
 
-        for(TodaysWeatherReport check : reports){
-            if(check.dateCheck(month, year)){
-                sum += check.dailyRainTotal();
-            }
+        if(reports.size() == 0){
+            return 0.0;
         }
-        return sum;
+        else {
+            for (TodaysWeatherReport check : reports) {
+                if (check.dateCheck(month, year)) {
+                    sum += check.dailyRainTotal();
+                }
+            }
+            return sum;
+        }
     }
 
     /**
