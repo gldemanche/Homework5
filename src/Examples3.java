@@ -46,17 +46,19 @@ public class Examples3 {
     }
 
     //checks when the year and month match the expected
+    @Test
     public void validDate(){
         TodaysWeatherReport dateReport3 = new TodaysWeatherReport(jan20, rainAndTemp,rainAndTemp);
 
         assertTrue(dateReport3.dateCheck(0,2020));
     }
 
+    @Test
     //checks when the year and month do not match the expected
     public void invalidDate(){
         TodaysWeatherReport dateReport3 = new TodaysWeatherReport(jan20, rainAndTemp,rainAndTemp);
 
-        assertTrue(dateReport3.dateCheck(10,1999));
+        assertFalse(dateReport3.dateCheck(10,1999));
     }
 
 }
